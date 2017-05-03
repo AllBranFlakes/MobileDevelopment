@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">fExplore</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
