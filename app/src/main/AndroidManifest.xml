@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AttractionActivity" />
+        <activity android:name=".CameraActivity" />
+        <activity android:name=".EventActivity" />
+        <activity android:name=".LocationActivity"></activity>
     </application>
 
 </manifest>

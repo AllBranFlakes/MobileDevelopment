@@ -1,5 +1,6 @@
 package com.example.softdeva.mobiledevelopment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,21 +17,14 @@ import android.view.MenuItem;
 public class SplashActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -80,18 +74,22 @@ public class SplashActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        //prevent current item select over and over
+        if (item.isChecked()){
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return false;
+        }
 
-        } else if (id == R.id.nav_slideshow) {
-
+        if (id == R.id.nav_slideshow) {
+            startActivity(new Intent(getApplicationContext(), LocationActivity.class));
         } else if (id == R.id.nav_manage) {
-
+            startActivity(new Intent(getApplicationContext(), AttractionActivity.class));
+        } else if (id == R.id.nav_camera) {
+            startActivity(new Intent(getApplicationContext(), CameraActivity.class));
+        } else if (id == R.id.nav_gallery) {
+            startActivity(new Intent(getApplicationContext(), EventActivity.class));
         } else if (id == R.id.nav_share) {
-
         } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
